@@ -1,20 +1,29 @@
+{% load static %}
+{% load bootstrap5 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Blog de teste</title>
-     <style>
-          h1{
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Meu Blog{% endblock %}</title>
+    
+    {% bootstrap_css %} 
+    
+    <style>
+         h1{
                color:pink
-          }
-     </style>
+         }
+    </style>
 </head>
 <body>
-     <p> <h1>Bem vindo ao  blog de Ju</h1></p>
-     {{posts}}
+    <main class="container mt-4"> 
+        <p> <h1>Bem vindo ao blog de Ju</h1></p>
+        
+        {% block content %}
+            {{posts}} {% endblock %}
+        
+    </main>
+
+    {% bootstrap_javascript %} 
 </body>
 </html>
-
-
-

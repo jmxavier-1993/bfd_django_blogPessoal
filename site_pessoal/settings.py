@@ -44,7 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'site_pessoal',
     'blog',
+    'crispy_forms',
+    'bootstrap5',
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5" # Define as versões permitidas
+CRISPY_TEMPLATE_PACK = "bootstrap5" # Define a versão padrão
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
