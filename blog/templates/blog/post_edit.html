@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="card shadow-sm border-0">
+    <div class="card-body p-4">
+        <h2 class="mb-4" style="font-family: 'Lobster'; color: #c25100;">Novo Post</h2>
+        
+        <form method="POST" class="post-form">
+            {% csrf_token %}
+            
+            {% for field in form %}
+                <div class="mb-3">
+                    <label class="form-label fw-bold text-muted">{{ field.label }}</label>
+                    {# O Django renderiza os inputs aqui #}
+                    {{ field }}
+                    
+                    {% if field.help_text %}
+                        <div class="form-text">{{ field.help_text }}</div>
+                    {% endif %}
+                    
+                    {% if field.errors %}
+                        <div class="text-danger small mt-1">{{ field.errors }}</div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            
+            <div class="d-flex gap-2 mt-4">
+                <button type="submit" class="btn btn-warning text-white fw-bold shadow-sm" style="background-color: #c25100; border: none; padding: 10px 30px;">
+                    Salvar Post
+                </button>
+                <a href="{% url 'post_list' %}" class="btn btn-outline-secondary" style="padding: 10px 20px;">
+                    Cancelar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

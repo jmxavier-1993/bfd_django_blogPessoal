@@ -1,0 +1,46 @@
+{% extends 'blog/base.html' %} {% block content %}
+<div
+  class="d-flex justify-content-center align-items-center"
+  style="min-height: 50vh"
+>
+  <div
+    class="card shadow-sm border-0"
+    style="width: 100%; max-width: 400px; border-radius: 15px"
+  >
+    <div class="card-body p-5">
+      <h2
+        class="text-center mb-4"
+        style="font-family: 'Lobster'; color: #c25100; font-size: 3rem"
+      >
+        Login
+      </h2>
+
+      <form method="post" class="login-form">
+        {% csrf_token %} {% for field in form %}
+        <div class="mb-3">
+          <label
+            for="{{ field.id_for_label }}"
+            class="form-label fw-bold text-muted small"
+          >
+            {{ field.label }}
+          </label>
+          {# O segredo está aqui: adicionamos a classe via CSS no próximo passo
+          #} {{ field }} {% if field.errors %}
+          <div class="text-danger small mt-1">{{ field.errors }}</div>
+          {% endif %}
+        </div>
+        {% endfor %}
+
+        <button
+          type="submit"
+          class="btn btn-warning w-100 text-white fw-bold mt-3 shadow-sm"
+          style="background-color: #ffb100; border: none; padding: 12px"
+        >
+          Entrar
+        </button>
+        <input type="hidden" name="next" value="{{ next }}" />
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
