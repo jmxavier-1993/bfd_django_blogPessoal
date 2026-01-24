@@ -1,0 +1,44 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="d-flex justify-content-center align-items-center min-vh-50">
+  <div class="card shadow-lg border-0 text-center" style="width: 100%; max-width: 500px; border-radius: 20px">
+    <div class="card-body p-5">
+      <div class="mb-5">
+        <i class="fas fa-check-circle text-success" style="font-size: 4rem;"></i>
+      </div>
+      
+      <h2 class="mb-4" style="font-family: 'Lobster', cursive; color: #c25100; font-size: 3rem">
+        Até logo!
+      </h2>
+      
+      <p class="lead text-muted mb-4">
+        Você saiu da sua conta com sucesso.
+      </p>
+      
+      <div class="d-grid gap-3 col-8 mx-auto">
+        <a href="{% url 'login' %}" class="btn btn-warning btn-lg fw-bold shadow-sm login-btn">
+          <i class="fas fa-sign-in-alt me-2"></i>Fazer Login Novamente
+        </a>
+        <a href="/" class="btn btn-outline-secondary">Voltar ao Blog</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.min-vh-50 { min-height: 50vh; }
+.login-btn {
+  background: linear-gradient(135deg, #ffb100 0%, #ff8c00 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(255, 177, 0, 0.4);
+  color: white !important;
+}
+</style>
+{% endblock %}
