@@ -1,0 +1,1 @@
+versão web: https://bfd-django-blogpessoal.onrender.com
